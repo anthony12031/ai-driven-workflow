@@ -64,7 +64,7 @@ This plugin registers the [Figma remote MCP server](https://developers.figma.com
 | Type     | Count | Examples |
 |----------|-------|----------|
 | Commands | 4     | `/init-repo`, `/build-feature`, `/design`, `/fix-bug` |
-| Skills   | 8     | architecture, debug, refactor, security-audit, performance, testing, code-gen, project-init |
+| Skills   | 8     | architecture, debug, refactor, security-audit, performance, test, code-gen, project-init |
 | Agents   | 7     | architect, code-reviewer, debugger, security-auditor, performance-analyst, test-engineer, devops-engineer |
 | Rules    | 12    | code-quality, security, typescript, python, go, rust, java, react, css, docker, terraform, shell |
 | Hooks    | 3     | format on edit, block risky shell commands, block PEM reads |
