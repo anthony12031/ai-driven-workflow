@@ -7,11 +7,21 @@ Cursor plugin for AI-driven development. Works with any language.
 ```bash
 git clone git@github.com:anthony12031/ai-driven-workflow.git
 cd ai-driven-workflow
-chmod +x install.sh scripts/*.sh
+chmod +x install.sh uninstall.sh scripts/*.sh
 ./install.sh
 ```
 
 Restart Cursor (or **Developer: Reload Window**).
+
+### Uninstall
+
+From the same repository:
+
+```bash
+./uninstall.sh
+```
+
+Removes the plugin symlink under `~/.cursor/plugins/local/`, workspace mirrors in this repo’s `.cursor/`, and matching entries in `~/.cursor/commands`, `~/.cursor/agents`, and `~/.cursor/skills` **only when they still refer to this plugin** (hard links and skill symlinks created by `install.sh`). Source trees such as `commands/` and `skills/` are not deleted. Restart Cursor afterward.
 
 `install.sh` registers the plugin under `~/.cursor/plugins/local/` **and** mirrors commands, agents, and skills into **`~/.cursor/commands`**, **`~/.cursor/agents`**, and **`~/.cursor/skills`**. That way slash commands, subagents, and plugin skills show up in **any** project you open, not only when this repository is the workspace root.
 
@@ -75,4 +85,5 @@ This plugin registers the [Figma remote MCP server](https://developers.figma.com
 ## Layout
 
 - `.cursor-plugin/plugin.json` — manifest
+- `install.sh`, `uninstall.sh` — register or remove plugin and mirrors
 - `commands/`, `skills/`, `agents/`, `rules/`, `hooks/`, `scripts/`, `mcp.json`
