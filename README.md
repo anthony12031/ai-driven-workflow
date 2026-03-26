@@ -13,11 +13,21 @@ chmod +x install.sh scripts/*.sh
 
 Restart Cursor (or **Developer: Reload Window**).
 
+`install.sh` registers the plugin under `~/.cursor/plugins/local/` **and** mirrors commands, agents, and skills into **`~/.cursor/commands`**, **`~/.cursor/agents`**, and **`~/.cursor/skills`**. That way slash commands, subagents, and plugin skills show up in **any** project you open, not only when this repository is the workspace root.
+
+Per-repo assets (rules, hooks, MCP in `.cursor/` inside this clone) stay tied to this repo. **Multi-root workspaces** only show settings for the folder Cursor treats as the context for that panel—use **`/`** in Agent chat to confirm global commands still work.
+
+If a skill name in `~/.cursor/skills/` already exists, re-running install points it at this plugin (back up custom skills first).
+
 ## Workflow
 
 ### 1. Init a project
 
-Open any repo in Cursor and say:
+Open the target repo in Cursor, then either:
+
+> `/init-repo`
+
+or say naturally:
 
 > init this project
 
@@ -53,7 +63,7 @@ This plugin registers the [Figma remote MCP server](https://developers.figma.com
 
 | Type     | Count | Examples |
 |----------|-------|----------|
-| Commands | 3     | `/build-feature`, `/design`, `/fix-bug` |
+| Commands | 4     | `/init-repo`, `/build-feature`, `/design`, `/fix-bug` |
 | Skills   | 8     | architecture, debug, refactor, security-audit, performance, testing, code-gen, project-init |
 | Agents   | 7     | architect, code-reviewer, debugger, security-auditor, performance-analyst, test-engineer, devops-engineer |
 | Rules    | 12    | code-quality, security, typescript, python, go, rust, java, react, css, docker, terraform, shell |
