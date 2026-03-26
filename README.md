@@ -19,6 +19,8 @@ Per-repo assets (rules, hooks, MCP in `.cursor/` inside this clone) stay tied to
 
 If a skill name in `~/.cursor/skills/` already exists, re-running install points it at this plugin (back up custom skills first).
 
+During development, when something is ambiguous, the workflow expects the agent to **ask you to clarify** instead of guessing.
+
 ## Workflow
 
 ### 1. Init a project
@@ -37,7 +39,7 @@ Scans configs, linters, and representative source. Writes project-specific rules
 
 > `/build-feature` Add OAuth2 login with Google and GitHub
 
-Creates `docs/specs/…`. You approve design and tasks before implementation; then implementation, tests, and review are coordinated.
+Creates `docs/specs/…`. You approve design and tasks before implementation; then implementation, tests, and review are coordinated. Independent tasks are implemented in **parallel subagents** when they do not depend on each other.
 
 ### 3. Design for the team
 

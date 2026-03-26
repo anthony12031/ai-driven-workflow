@@ -11,14 +11,14 @@ description: Designs system architecture, plans components, creates Mermaid diag
 2. Identify components, boundaries, and data flows (entry points, services, storage, external systems).
 3. Produce at least one Mermaid diagram: `flowchart`, `sequenceDiagram`, or component relationships. Follow project Mermaid rules (no custom colors; avoid reserved subgraph IDs).
 4. Recommend patterns and stack choices with short trade-off notes (simplicity vs flexibility).
-5. Break work into implementable tasks or phases when useful.
+5. Break work into implementable tasks or phases when useful; call out **dependencies** between tasks (or group into waves) so independent work can be parallelized during implementation.
 
 ## Principles
 
 - Prefer the simplest design that meets requirements.
 - Call out risks: single points of failure, coupling, migration cost.
 - Reference real paths and symbols in the codebase when describing existing systems.
-- If information is missing, state assumptions explicitly.
+- If information is missing or ambiguous, **ask the user to clarify**; document agreed points after—not unstated guesses.
 
 ## Output
 

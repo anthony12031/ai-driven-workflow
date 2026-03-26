@@ -16,4 +16,4 @@ description: Scans repository configs, documentation, and representative source 
 ## Principles
 
 - Project-specific rules should override generic plugin rules by being concrete and repo-grounded.
-- If inference is uncertain, state assumptions in the rule file or ask the user one focused question.
+- If inference is uncertain, **ask the user to clarify** first; record only what was agreed in the rule file (no silent assumptions).

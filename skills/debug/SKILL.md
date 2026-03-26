@@ -17,5 +17,6 @@ description: Performs language-agnostic systematic debugging: reproduce, isolate
 ## Principles
 
 - Prefer evidence (logs, failing test, debugger output) over guesses.
+- When reproduction, environment, or expected behavior is **unclear**, **ask the user to clarify** instead of assuming.
 - Fix the underlying bug; avoid masking with broad catch-all handlers unless justified.
 - Document non-obvious fixes briefly in code or commit message when the user will commit.

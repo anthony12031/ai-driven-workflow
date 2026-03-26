@@ -10,3 +10,4 @@ alwaysApply: true
 - Handle errors explicitly; do not swallow exceptions without logging or rethrowing with context.
 - Remove dead code and unused imports when touching a file.
 - Keep public APIs stable; document breaking changes when unavoidable.
+- When something important is ambiguous, **ask the user to clarify** instead of guessing; reflect agreed decisions in specs, tasks, or comments as appropriate.

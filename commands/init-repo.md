@@ -18,4 +18,4 @@ Follow the **project-init** skill end to end:
 ## Rules
 
 - Prefer concrete, repo-grounded rules over generic plugin defaults.
-- If inference is uncertain, state assumptions in the rule file or ask one focused question.
+- If inference is uncertain, **ask the user to clarify**; only after that, record agreed conventions in the rule file (avoid silent assumptions).
