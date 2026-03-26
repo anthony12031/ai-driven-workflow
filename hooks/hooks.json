@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "scripts/format-on-edit.sh"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "scripts/block-dangerous-cmds.sh",
+        "matcher": "rm|DROP|git push|curl|wget"
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": "scripts/scan-secrets.sh"
+      }
+    ]
+  }
+}

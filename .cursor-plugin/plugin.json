@@ -1,0 +1,20 @@
+{
+  "name": "ai-driven-workflow",
+  "description": "Language-agnostic AI development workflow with skills, agents, rules, and hooks for building features in any programming language",
+  "version": "1.0.0",
+  "author": {
+    "name": "Anthony Vargas"
+  },
+  "repository": "https://github.com/anthony12031/ai-driven-workflow",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "polyglot",
+    "security",
+    "architecture",
+    "testing",
+    "debugging",
+    "figma",
+    "spec-driven"
+  ]
+}

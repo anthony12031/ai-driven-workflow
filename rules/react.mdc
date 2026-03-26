@@ -1,0 +1,13 @@
+---
+description: React component and hook conventions
+globs: "**/*.{jsx,tsx}"
+alwaysApply: false
+---
+
+# React
+
+- Prefer function components and hooks; keep components focused; lift state only when needed.
+- Memoize (`useMemo`, `useCallback`) when profiling shows benefit, not by default.
+- Keys on lists must be stable; avoid array index keys for dynamic lists.
+- Avoid inline object/array literals in props when they cause unnecessary child re-renders.
+- Sanitize or escape HTML when rendering untrusted strings; avoid `dangerouslySetInnerHTML` unless necessary and safe.

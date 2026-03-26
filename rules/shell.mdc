@@ -1,0 +1,13 @@
+---
+description: Shell script conventions
+globs: "**/*.sh"
+alwaysApply: false
+---
+
+# Shell
+
+- Start scripts with `set -euo pipefail` when compatible with the script's logic.
+- Quote variables and use `"$@"` for forwarding arguments.
+- Prefer `[[` over `[` in bash; avoid `ls` for parsing; use globs or `find` carefully.
+- Never pass untrusted input to `eval` or unquoted command substitution.
+- Keep scripts idempotent when used in automation; log clearly on failure.

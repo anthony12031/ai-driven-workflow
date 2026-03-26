@@ -1,0 +1,13 @@
+---
+description: Rust conventions
+globs: "**/*.rs"
+alwaysApply: false
+---
+
+# Rust
+
+- Prefer `Result` and `Option`; avoid `unwrap`/`expect` in library code without strong justification.
+- Minimize `unsafe`; document invariants when `unsafe` is required.
+- Use `clippy` and `fmt` per project; keep public API documented with `///`.
+- Prefer iterators over manual indexing when it improves clarity and safety.
+- Structure modules to keep visibility minimal (`pub(crate)` etc.).

@@ -1,0 +1,13 @@
+---
+description: TypeScript conventions
+globs: "**/*.{ts,mts,cts}"
+alwaysApply: false
+---
+
+# TypeScript
+
+- Prefer `const`; use `let` only when reassigned. Avoid `var`.
+- Enable and respect strict compiler options when the project uses them; avoid `any` unless justified.
+- Model external data with explicit types or validation (e.g. zod) at boundaries.
+- Use async/await consistently; handle rejections; avoid floating promises.
+- Colocate types with modules; export only what consumers need.

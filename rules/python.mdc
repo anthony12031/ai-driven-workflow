@@ -1,0 +1,13 @@
+---
+description: Python conventions
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python
+
+- Use type hints on public functions; prefer `pathlib` over string paths for filesystem work.
+- Prefer context managers (`with`) for resources; close or release in `finally` when needed.
+- Catch specific exceptions; avoid bare `except:`.
+- Follow the project's formatter and linter (e.g. ruff, black); keep imports sorted per project config.
+- Use virtual environments or the project's documented dependency tool (poetry, uv, pip-tools).

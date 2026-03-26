@@ -1,0 +1,13 @@
+---
+description: CSS and SCSS conventions
+globs: "**/*.{css,scss,sass,less}"
+alwaysApply: false
+---
+
+# CSS / SCSS
+
+- Prefer design tokens or variables for colors, spacing, and typography when the project uses them.
+- Avoid deep selector chains; prefer class-based styling consistent with the codebase.
+- Use mobile-first or the project's responsive convention consistently.
+- Avoid `!important` unless overriding third-party with documented reason.
+- Co-locate styles with components when that is the project pattern.

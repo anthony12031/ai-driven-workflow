@@ -1,0 +1,13 @@
+---
+description: Go conventions
+globs: "**/*.go"
+alwaysApply: false
+---
+
+# Go
+
+- Handle errors explicitly; wrap with `%w` when propagating; avoid ignoring returned errors.
+- Prefer small interfaces at call sites; avoid unnecessary exported symbols.
+- Use `context.Context` for cancellation and deadlines on I/O and RPC.
+- Format with `gofmt`; run `go vet` and tests before considering work done.
+- Avoid global mutable state; use dependency injection where it clarifies tests.

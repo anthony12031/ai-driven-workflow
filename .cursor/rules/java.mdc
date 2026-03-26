@@ -1,0 +1,13 @@
+---
+description: Java and Kotlin JVM conventions
+globs: "**/*.{java,kt,kts}"
+alwaysApply: false
+---
+
+# Java / Kotlin
+
+- Prefer immutable fields and clear nullability (Optional, nullable types in Kotlin).
+- Use try-with-resources or `use` (Kotlin) for closeable resources.
+- Avoid catching generic `Exception` unless at a boundary; log and rethrow with context when appropriate.
+- Follow project build tool (Maven/Gradle) and package layout; keep modules cohesive.
+- For Spring or similar, prefer constructor injection and explicit configuration over field injection where the project does.

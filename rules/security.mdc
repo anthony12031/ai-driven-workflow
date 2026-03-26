@@ -1,0 +1,12 @@
+---
+description: Security baseline—secrets, input validation, and safe defaults
+alwaysApply: true
+---
+
+# Security
+
+- Never commit private keys, certificates (`.key`, `.crt`), or long-lived API tokens. Use env vars and secret stores.
+- Validate and sanitize external input; use parameterized queries for SQL; avoid string-built shell commands with user data.
+- Apply least privilege for credentials, IAM roles, and file permissions.
+- Use HTTPS for sensitive data in transit; set secure cookie attributes when applicable.
+- Prefer established crypto libraries; do not roll your own cryptography.

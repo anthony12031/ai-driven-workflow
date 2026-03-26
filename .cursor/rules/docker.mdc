@@ -1,0 +1,13 @@
+---
+description: Docker and Compose conventions
+globs: "**/{Dockerfile*,docker-compose*.yml,docker-compose*.yaml,compose*.yml,compose*.yaml}"
+alwaysApply: false
+---
+
+# Docker
+
+- Use specific image tags, not bare `latest`, unless the project standard says otherwise.
+- Run application processes as non-root when feasible; set `USER` after installing deps.
+- Minimize layers and image size; multi-stage builds for compiled apps when appropriate.
+- Do not bake secrets into images; use build args and runtime env per project patterns.
+- Document exposed ports and healthchecks when services are long-running.

@@ -1,0 +1,13 @@
+---
+description: Terraform and OpenTofu conventions
+globs: "**/*.tf"
+alwaysApply: false
+---
+
+# Terraform
+
+- Pin provider versions; use workspaces or remote state per team standards.
+- Name resources for clarity; use consistent tagging scheme (env, owner, cost center) when required.
+- Prefer `for_each` or `count` patterns that match project modules; avoid copy-paste environments.
+- Mark sensitive outputs and variables appropriately; never commit `.tfstate` with secrets.
+- Run `fmt` and `validate` before proposing changes; note blast radius for prod modules.

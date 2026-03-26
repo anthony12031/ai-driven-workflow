@@ -1,0 +1,12 @@
+---
+description: Universal code quality—clarity, structure, and maintainability
+alwaysApply: true
+---
+
+# Code quality
+
+- Prefer small, focused functions and modules; extract when logic repeats or branches deeply.
+- Use names that reflect intent; avoid abbreviations unless domain-standard.
+- Handle errors explicitly; do not swallow exceptions without logging or rethrowing with context.
+- Remove dead code and unused imports when touching a file.
+- Keep public APIs stable; document breaking changes when unavoidable.
