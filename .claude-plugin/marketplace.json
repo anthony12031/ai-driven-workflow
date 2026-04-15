@@ -1,0 +1,17 @@
+{
+  "name": "ai-driven-workflow-marketplace",
+  "owner": {
+    "name": "Anthony Vargas"
+  },
+  "metadata": {
+    "description": "Catalog for the ai-driven-workflow plugin (same repository as the marketplace root)."
+  },
+  "plugins": [
+    {
+      "name": "ai-driven-workflow",
+      "source": "./",
+      "description": "Language-agnostic AI development workflow with skills, agents, rules, and hooks.",
+      "repository": "https://github.com/anthony12031/ai-driven-workflow"
+    }
+  ]
+}

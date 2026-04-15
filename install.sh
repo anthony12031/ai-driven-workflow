@@ -30,7 +30,7 @@ for f in "$ROOT/agents"/*.md; do
   ln -f "$f" "$ROOT/.cursor/agents/$(basename "$f")"
 done
 
-ln -f "$ROOT/hooks/hooks.json" "$ROOT/.cursor/hooks.json"
+ln -f "$ROOT/hooks/cursor-hooks.json" "$ROOT/.cursor/hooks.json"
 ln -f "$ROOT/mcp.json" "$ROOT/.cursor/mcp.json"
 
 USER_CURSOR="${HOME}/.cursor"

@@ -10,7 +10,13 @@ def main() -> None:
         data = json.load(sys.stdin)
     except json.JSONDecodeError:
         return
-    path = data.get("file_path") or ""
+    tool_input = data.get("tool_input") or {}
+    path = (
+        data.get("file_path")
+        or tool_input.get("file_path")
+        or (data.get("tool_response") or {}).get("filePath")
+        or ""
+    )
     if not path or not os.path.isfile(path):
         return
     ext = os.path.splitext(path)[1].lower()
@@ -22,7 +28,16 @@ def main() -> None:
         except Exception:
             pass
 
-    if ext in (".ts", ".tsx", ".js", ".jsx", ".json", ".md", ".css", ".scss") and shutil.which("npx"):
+    if ext in (
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".json",
+        ".md",
+        ".css",
+        ".scss",
+    ) and shutil.which("npx"):
         run(["npx", "--yes", "prettier", "--write", path])
     elif ext == ".py":
         if shutil.which("ruff"):

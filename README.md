@@ -1,33 +1,107 @@
 # ai-driven-workflow
 
-Cursor plugin for AI-driven development. Works with any language.
+Cursor and **Claude Code** plugin for AI-driven development. Works with any language.
 
-## Install
+## Cursor and Claude Code
+
+The same repository is wired for **both** products:
+
+| | Cursor | Claude Code |
+|---|--------|-------------|
+| Manifest | `.cursor-plugin/plugin.json` (hooks → `hooks/cursor-hooks.json`) | `.claude-plugin/plugin.json` |
+| MCP | `mcp.json` | `.mcp.json` → `mcp.json` (symlink) |
+| Hooks | `hooks/cursor-hooks.json` (Cursor events) | `hooks/hooks.json` ([Claude hook events](https://code.claude.com/docs/en/hooks)) |
+| Commands, skills, agents | Same `commands/`, `skills/`, `agents/` tree | Same tree ([plugin reference](https://code.claude.com/docs/en/plugins-reference)) |
+| Rules | `rules/*.mdc` for Cursor | Not loaded as Cursor rules; use project `.claude/rules/` if you want Claude-only guidance |
+
+**Cursor:** use **`./install.sh`** (see [Install — Cursor](#install--cursor)).
+
+**Claude Code:** use **marketplace + plugin install** (see [Install — Claude Code](#install--claude-code)); there is no `install.sh`. Hooks use `${CLAUDE_PLUGIN_ROOT}` for bundled scripts.
+
+## Repository
+
+**https://github.com/anthony12031/ai-driven-workflow**
+
+Clone with SSH or HTTPS, for example:
 
 ```bash
-git clone git@github.com:anthony12031/ai-driven-workflow.git
+git clone https://github.com/anthony12031/ai-driven-workflow.git
+```
+
+## Install — Cursor
+
+1. Clone the repo (see [Repository](#repository)) and enter the directory.
+2. Make scripts executable and run the installer:
+
+```bash
 cd ai-driven-workflow
 chmod +x install.sh uninstall.sh scripts/*.sh
 ./install.sh
 ```
 
-Restart Cursor (or **Developer: Reload Window**).
+3. Restart Cursor (**Developer: Reload Window**).
 
-### Uninstall
+`install.sh` symlinks the plugin under `~/.cursor/plugins/local/ai-driven-workflow` and mirrors **commands**, **agents**, and **skills** into **`~/.cursor/commands`**, **`~/.cursor/agents`**, and **`~/.cursor/skills`** so they appear in **every** project you open. Workspace-only assets (**rules**, **hooks**, **MCP**) are mirrored under **this clone’s** `.cursor/` directory.
 
-From the same repository:
+If a name under `~/.cursor/skills/` already exists, re-running install repoints it at this plugin (back up custom skills first). In **multi-root** workspaces, use **`/`** in Agent chat if the settings panel looks scoped to one folder.
+
+### Uninstall — Cursor
+
+From the cloned repository:
 
 ```bash
 ./uninstall.sh
 ```
 
-Removes the plugin symlink under `~/.cursor/plugins/local/`, workspace mirrors in this repo’s `.cursor/`, and matching entries in `~/.cursor/commands`, `~/.cursor/agents`, and `~/.cursor/skills` **only when they still refer to this plugin** (hard links and skill symlinks created by `install.sh`). Source trees such as `commands/` and `skills/` are not deleted. Restart Cursor afterward.
+Removes the Cursor plugin symlink, this repo’s `.cursor/` mirrors, and matching global `~/.cursor/` entries **only when they still match this plugin**. Your `commands/`, `skills/`, etc. in the repo are not deleted. Restart Cursor afterward.
 
-`install.sh` registers the plugin under `~/.cursor/plugins/local/` **and** mirrors commands, agents, and skills into **`~/.cursor/commands`**, **`~/.cursor/agents`**, and **`~/.cursor/skills`**. That way slash commands, subagents, and plugin skills show up in **any** project you open, not only when this repository is the workspace root.
+## Install — Claude Code
 
-Per-repo assets (rules, hooks, MCP in `.cursor/` inside this clone) stay tied to this repo. **Multi-root workspaces** only show settings for the folder Cursor treats as the context for that panel—use **`/`** in Agent chat to confirm global commands still work.
+Claude Code installs plugins through [marketplaces](https://code.claude.com/docs/en/discover-plugins). This repository ships a tiny catalog at `.claude-plugin/marketplace.json` so you can add **this GitHub repo** as a marketplace and install the plugin by name (no `install.sh`).
 
-If a skill name in `~/.cursor/skills/` already exists, re-running install points it at this plugin (back up custom skills first).
+**Plugin:** `ai-driven-workflow`  
+**Marketplace id:** `ai-driven-workflow-marketplace` (the `name` field in `marketplace.json`)
+
+### From GitHub (recommended)
+
+In a terminal (with the [Claude Code CLI](https://code.claude.com/docs/en/setup) on your `PATH`):
+
+```bash
+claude plugin marketplace add anthony12031/ai-driven-workflow
+claude plugin install ai-driven-workflow@ai-driven-workflow-marketplace
+```
+
+Or inside Claude Code:
+
+1. Run **`/plugin`** → **Marketplaces** → add **`anthony12031/ai-driven-workflow`** (same as `owner/repo` on GitHub).
+2. **Discover** → install **ai-driven-workflow** (pick **user**, **project**, or **local** [scope](https://code.claude.com/docs/en/settings#configuration-scopes) as you prefer).
+3. Run **`/reload-plugins`**.
+
+Optional: validate a local clone:
+
+```bash
+claude plugin validate /path/to/ai-driven-workflow
+```
+
+### From a local clone (development)
+
+```bash
+cd /path/to/ai-driven-workflow
+claude plugin marketplace add .
+claude plugin install ai-driven-workflow@ai-driven-workflow-marketplace --scope local
+```
+
+Then **`/reload-plugins`** in the app.
+
+### Uninstall — Claude Code
+
+```bash
+claude plugin uninstall ai-driven-workflow@ai-driven-workflow-marketplace
+```
+
+Or **`/plugin`** → **Installed** → remove **ai-driven-workflow**. Use **`/reload-plugins`** after changes.
+
+See also: [Plugins](https://code.claude.com/docs/en/plugins), [Plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces).
 
 During development, when something is ambiguous, the workflow expects the agent to **ask you to clarify** instead of guessing.
 
@@ -79,11 +153,16 @@ This plugin registers the [Figma remote MCP server](https://developers.figma.com
 | Skills   | 8     | architecture, debug, refactor, security-audit, performance, test, code-gen, project-init |
 | Agents   | 7     | architect, code-reviewer, debugger, security-auditor, performance-analyst, test-engineer, devops-engineer |
 | Rules    | 12    | code-quality, security, typescript, python, go, rust, java, react, css, docker, terraform, shell |
-| Hooks    | 3     | format on edit, block risky shell commands, block PEM reads |
+| Hooks    | 3     | format on edit, block risky shell, block PEM reads (dual Cursor + Claude configs) |
 | MCP      | 1     | Figma (remote) |
 
 ## Layout
 
-- `.cursor-plugin/plugin.json` — manifest
-- `install.sh`, `uninstall.sh` — register or remove plugin and mirrors
-- `commands/`, `skills/`, `agents/`, `rules/`, `hooks/`, `scripts/`, `mcp.json`
+- `.cursor-plugin/plugin.json` — Cursor manifest (custom hooks path)
+- `.claude-plugin/plugin.json` — Claude Code plugin manifest
+- `.claude-plugin/marketplace.json` — Claude Code marketplace catalog (install `ai-driven-workflow@ai-driven-workflow-marketplace`)
+- `.mcp.json` — symlink to `mcp.json` for Claude Code
+- `install.sh`, `uninstall.sh` — register or remove **Cursor** plugin and mirrors
+- `hooks/hooks.json` — Claude Code hooks (`PostToolUse`, `PreToolUse`)
+- `hooks/cursor-hooks.json` — Cursor hooks
+- `commands/`, `skills/`, `agents/`, `rules/`, `scripts/`, `mcp.json`

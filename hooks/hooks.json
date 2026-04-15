@@ -1,20 +1,34 @@
 {
-  "version": 1,
   "hooks": {
-    "afterFileEdit": [
+    "PostToolUse": [
       {
-        "command": "scripts/format-on-edit.sh"
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format-on-edit.sh"
+          }
+        ]
       }
     ],
-    "beforeShellExecution": [
+    "PreToolUse": [
       {
-        "command": "scripts/block-dangerous-cmds.sh",
-        "matcher": "rm|DROP|git push|curl|wget"
-      }
-    ],
-    "beforeReadFile": [
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/block-dangerous-cmds.sh"
+          }
+        ]
+      },
       {
-        "command": "scripts/scan-secrets.sh"
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/scan-secrets.sh"
+          }
+        ]
       }
     ]
   }

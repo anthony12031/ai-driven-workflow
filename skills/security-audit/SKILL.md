@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Reviews code and dependencies for common security issues: injection, authn/authz gaps, secrets exposure, unsafe deserialization, SSRF, path traversal, and dependency risks. Use when the user asks for a security review, before shipping sensitive features, or when touching auth, crypto, file uploads, or SQL.
+description: "Reviews code and dependencies for common security issues: injection, authn/authz gaps, secrets exposure, unsafe deserialization, SSRF, path traversal, and dependency risks. Use when the user asks for a security review, before shipping sensitive features, or when touching auth, crypto, file uploads, or SQL."
 ---
 
 # Security Audit

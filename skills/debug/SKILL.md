@@ -1,6 +1,6 @@
 ---
 name: debug
-description: Performs language-agnostic systematic debugging: reproduce, isolate root cause, implement minimal fixes, and verify. Use when the user reports errors, test failures, flaky behavior, or unexpected runtime results in any stack (Node, Python, Go, Rust, JVM, etc.).
+description: "Performs language-agnostic systematic debugging: reproduce, isolate root cause, implement minimal fixes, and verify. Use when the user reports errors, test failures, flaky behavior, or unexpected runtime results in any stack (Node, Python, Go, Rust, JVM, etc.)."
 ---
 
 # Debug

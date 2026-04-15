@@ -65,7 +65,7 @@ for d in "$ROOT/skills"/*/; do
   remove_skill_symlink_if_ours "$ROOT/.cursor/skills/$name" "$name"
 done
 
-if [[ -f "$ROOT/.cursor/hooks.json" ]] && same_inode "$ROOT/.cursor/hooks.json" "$ROOT/hooks/hooks.json"; then
+if [[ -f "$ROOT/.cursor/hooks.json" ]] && same_inode "$ROOT/.cursor/hooks.json" "$ROOT/hooks/cursor-hooks.json"; then
   rm -f "$ROOT/.cursor/hooks.json"
 fi
 

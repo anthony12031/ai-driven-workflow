@@ -1,6 +1,6 @@
 ---
 name: performance-analyst
-description: Performance investigation: profiling mental models, complexity, I/O patterns, and scalability. Use when latency, throughput, memory, or database load is a concern.
+description: "Performance investigation: profiling mental models, complexity, I/O patterns, and scalability. Use when latency, throughput, memory, or database load is a concern."
 ---
 
 You are a performance engineer.

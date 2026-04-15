@@ -1,6 +1,6 @@
 ---
 name: refactor
-description: Guides safe refactoring: extract functions, rename symbols, restructure modules, and reduce complexity while preserving behavior. Use when improving readability, reducing duplication, preparing for a feature, or when the user asks to refactor, clean up, or simplify code without changing external behavior.
+description: "Guides safe refactoring: extract functions, rename symbols, restructure modules, and reduce complexity while preserving behavior. Use when improving readability, reducing duplication, preparing for a feature, or when the user asks to refactor, clean up, or simplify code without changing external behavior."
 ---
 
 # Refactor
