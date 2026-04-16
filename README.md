@@ -11,7 +11,7 @@
 | Manifest | `.cursor-plugin/plugin.json` | `.claude-plugin/plugin.json` + `marketplace.json` |
 | Hooks | `hooks/cursor-hooks.json` | `hooks/hooks.json` ([event reference](https://code.claude.com/docs/en/hooks)) |
 | MCP | `mcp.json` | `.mcp.json` → `mcp.json` |
-| Rules | `rules/*.mdc` (Cursor) | Add `.claude/rules/` in your app repo if you want Claude-only text rules |
+| Rules | `rules/*.mdc` (Cursor) | Project `.claude/rules/*.md` — use `/init-repo` to generate alongside `.cursor/rules/` |
 
 ---
 
@@ -87,7 +87,7 @@ More detail: [Plugins](https://code.claude.com/docs/en/plugins), [Plugin marketp
 
 ### 1. Init a project
 
-`/init-repo` or *“init this project”* — scans configs and linters, writes `.cursor/rules/`, adds `.cursor/rules/` to `.git/info/exclude`.
+`/init-repo` or *“init this project”* — scans configs and linters, writes `.cursor/rules/` (`.mdc`) and `.claude/rules/` (Markdown), adds both to `.git/info/exclude`.
 
 ### 2. Build a feature
 
