@@ -2,7 +2,7 @@
   "name": "ai-driven-workflow",
   "description": "Language-agnostic AI development workflow with skills, agents, rules, and hooks for building features in any programming language",
   "hooks": "hooks/cursor-hooks.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Anthony Vargas"
   },
